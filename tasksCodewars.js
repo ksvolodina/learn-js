@@ -21,14 +21,27 @@
 // makeNegative();
 
 // Задача: получить непустой массив целых чисел, вернуть результат умножения значений массива
-function arrMultiply(numbers){
+// function arrMultiply(numbers){
+//     if (numbers.length > 0){
+//         let result = 1;
+//         for (let number of numbers){
+//             result *= number;
+//         }
+//         console.log(result);
+//     }
+// }
+//
+// arrMultiply([1, 2, 3]);
+
+// Задача: вернуть наименьшее целое число непустого массива
+function minNumber(numbers){
     if (numbers.length > 0){
-        let result = 1;
+        let min = numbers[0];
         for (let number of numbers){
-            result *= number;
+            if (min > number) min = number;
         }
-        console.log(result);
+        return min;
     }
 }
 
-arrMultiply([1, 2, 3]);
+console.log(minNumber([34, -345, -1, 100]));
