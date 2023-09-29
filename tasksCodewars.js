@@ -1,21 +1,34 @@
 // Задача: создать функцию, которая делает положительное число отрицательным.
 // Остальные условия - полнейшая отсебятина
 
-function makeNegative(){
-    let tries = 0;
-    while (tries < 3){
-        let number = +prompt('Введите число')
-        if (number > 0){
-            alert(`Вау, мы сделали число отрицательным: ${number *= -1}!`)
-            break
-        } else if (isNaN(number)) {
-            alert('Введите число, а не буковки')
-        } else {
-            alert('Магия не работает для 0 и отрицательных чисел :(')
+// function makeNegative(){
+//     let tries = 0;
+//     while (tries < 3){
+//         let number = +prompt('Введите число')
+//         if (number > 0){
+//             alert(`Вау, мы сделали число отрицательным: ${number *= -1}!`)
+//             break
+//         } else if (isNaN(number)) {
+//             alert('Введите число, а не буковки')
+//         } else {
+//             alert('Магия не работает для 0 и отрицательных чисел :(')
+//         }
+//         tries++;
+//     }
+//     alert('А всё, уже всё, приходите завтра')
+// }
+//
+// makeNegative();
+
+// Задача: получить непустой массив целых чисел, вернуть результат умножения значений массива
+function arrMultiply(numbers){
+    if (numbers.length > 0){
+        let result = 1;
+        for (let number of numbers){
+            result *= number;
         }
-        tries++;
+        console.log(result);
     }
-    alert('А всё, уже всё, приходите завтра')
 }
 
-makeNegative();
+arrMultiply([1, 2, 3]);
