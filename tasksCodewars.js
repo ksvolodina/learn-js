@@ -34,14 +34,25 @@
 // arrMultiply([1, 2, 3]);
 
 // Задача: вернуть наименьшее целое число непустого массива
-function minNumber(numbers){
-    if (numbers.length > 0){
-        let min = numbers[0];
-        for (let number of numbers){
-            if (min > number) min = number;
-        }
-        return min;
+// function minNumber(numbers){
+//     if (numbers.length > 0){
+//         let min = numbers[0];
+//         for (let number of numbers){
+//             if (min > number) min = number;
+//         }
+//         return min;
+//     }
+// }
+//
+// console.log(minNumber([34, -345, -1, 100]));
+
+// Задача: найти сумму всех чисел от 1 до num
+function sumNumbers(num){
+    let result = 0;
+    for (let i = 1; i<=num; i++){
+        result += i;
     }
+    return result;
 }
 
-console.log(minNumber([34, -345, -1, 100]));
+console.log(sumNumbers(2));
