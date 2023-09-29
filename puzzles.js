@@ -1,6 +1,6 @@
 // Должны соблюдаться следующие условия:
 //
-// 1. В случае правильного ответа выдать пользователю сообщение "Правильный ответ" (в alert и console.log)
+// 1. В случае правильного ответа выдать пользователю сообщение "Правильный ответ"
 // 2. В случае неправильного ответа выдать пользователю сообщение "Неправильный ответ"
 // 3. В случае окончания попыток выдать пользователю сообщение "Игра окончена"
 //
@@ -14,26 +14,27 @@ var riddle = {
     correctAnswer: 'лампочка',
     hints: ['это несъедобное', 'это не фрукт'],
     tries: 3,
-    checkAnswer(guessedAnswer) {
+    checkAnswer(riddleAnswer) {
         // проверка на правильность
-        if (guessedAnswer === this.correctAnswer){
+        if (riddleAnswer === this.correctAnswer){
             alert('Правильный ответ')
-            console.log('Правильный ответ')
+            this.tries = 0
+            errorTries.classList.add("success")
+            errorTries.innerText = 'Поздравляем, вы победили!'
         } else {
-            alert('Неправильный ответ')
-            console.log('Неправильный ответ')
             this.tries--
-            console.log(this.tries)
+            if (this.tries === 0) {
+                errorTries.classList.add("error")
+                errorTries.innerText = 'Вы проиграли. Правильный ответ: лампочка'
+            }
         }
-        // подсчет попыток
-        if (this.tries === 1){
-            alert(this.hints.join(', '))
-        } else if (this.tries === 0){
-            alert('Правильный ответ - лампочка')
-            // добавим невозможность играть дальше
+        // подсчет попыток и выдача подсказок
+        if (this.tries > 0){
+            const hint = this.hints[this.tries === 2 ? 0 : 1]
+            alert(`Неправильный ответ. Подсказка: ${hint}. Осталось попыток: ${this.tries}`)
+        } else {
+            alert('Игра окончена')
             btn.disabled = true
-            errorTries.classList.add("active")
-            errorTries.innerText = 'Вы проиграли'
         }
     },
 }
@@ -44,11 +45,13 @@ window.onload = function() {
 
 const btn = document.getElementById('btn')
 const errorTries = document.getElementById('error')
+const input = document.getElementById('input');
+
 btn.onclick = function (event) {
     event.preventDefault()
-    const input = document.getElementsByTagName('input')[0];
     const guessedAnswer = input.value.toLowerCase();
     if (guessedAnswer) {
         riddle.checkAnswer(guessedAnswer)
     }
+    input.value = ''
 }

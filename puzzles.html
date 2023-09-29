@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <title>Puzzles</title>
     <style>
-        #error.active{
+        #error.error{
             color: #f00;
+        }
+        #error.success{
+            color: #2a9a2a;
         }
     </style>
 </head>
@@ -15,7 +18,7 @@
     <p><small>Дается 3 попытки.</small></p>
     <p id="riddle"></p>
     <form>
-        <input placeholder="ответ" autofocus>
+        <input id="input" placeholder="ответ" autofocus>
         <button id="btn">Проверить</button>
         <p id="error"></p>
     </form>
