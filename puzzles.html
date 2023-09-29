@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <title>Puzzles</title>
+    <style>
+        #error.active{
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Угадай загадку</h1>
+    <p><small>Дается 3 попытки.</small></p>
+    <p id="riddle"></p>
+    <form>
+        <input placeholder="ответ" autofocus>
+        <button id="btn">Проверить</button>
+        <p id="error"></p>
+    </form>
+    <script src="./puzzles.js"></script>
+</body>
+</html>
