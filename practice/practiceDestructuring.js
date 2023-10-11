@@ -7,5 +7,8 @@ function getInfo() {
     return ['BMW', 'X3'];
 }
 
-const [carName, carSeries] = getInfo()
+const [
+    carName = '',
+    carSeries = ''
+] = getInfo() || []
 console.log(carName, carSeries)
