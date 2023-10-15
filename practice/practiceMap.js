@@ -2,8 +2,8 @@
 //
 const numbers = [1, 2, 3]
 const doubledNumbers = numbers.map(num => num * 2)
-console.log(doubledNumbers)
-console.log(numbers)
+// console.log(doubledNumbers)
+// console.log(numbers)
 
 // Практика на маппинг №2
 // Дана коллекция developers. Создайте на ее основе новую коллекцию middleDevelopers,
@@ -31,12 +31,11 @@ const developers = [
 ];
 
 const middleDevelopers = developers.map((developer) => {
-    const middleDeveloper = {
-        ...developers,
+    return {
+        ...developer,
         skills: [...developer.skills, 'TypeScript'],
         salary: developer.salary + 500,
     }
-    return middleDeveloper
 })
 
 console.log(middleDevelopers)
